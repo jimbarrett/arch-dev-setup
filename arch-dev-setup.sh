@@ -111,8 +111,8 @@ loop() {\
 		n=$((n+1))
 		newcomment="$(echo $comment | sed "s/\(^\"\|\"$\)//g")"
 		case $tag in
-			"") maininstall $program $newcomment ;;
-			"A") aurinstall $program $newcomment ;;
+			"") maininstall "$program" "$newcomment" ;;
+			"A") aurinstall "$program" "$newcomment" ;;
 		esac
 	done < /tmp/progs.csv ;
 }
