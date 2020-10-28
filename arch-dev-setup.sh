@@ -192,6 +192,9 @@ sudo -u $username mkdir /home/$username/.local/.nvm &&
 export NVM_DIR=/home/$username/.local/.nvm &&
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash
 
+# install private internet access
+curl -o- https://installers.privateinternetaccess.com/download/pia-linux-2.4-05574.run | bash
+
 [ -f /usr/bin/pulseaudio ] && resetpulse
 
 serviceinit NetworkManager cronie org.cups.cupsd.service
