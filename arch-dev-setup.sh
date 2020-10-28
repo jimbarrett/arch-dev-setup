@@ -6,7 +6,7 @@
 # repo and programs list
 
 dotfiles="https://github.com/jimbarrett/arch-configs.git"
-programs="https://raw.githubusercontent.com/jimbarrett/arch-dev-setup/main/arch-dev-setup.sh"
+programs="https://raw.githubusercontent.com/jimbarrett/arch-dev-setup/main/programs.csv"
 
 # functions used in installation process
 error() {\
