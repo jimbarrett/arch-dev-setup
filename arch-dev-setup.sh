@@ -187,19 +187,37 @@ rm -f /home/$username/README.md /home/$username/LICENSE
 
 chsh -s /usr/bin/zsh $username
 
+clear
 # install nvm
+echo "Installing NVM..."
 sudo -u $username mkdir /home/$username/.local/.nvm &&
 export NVM_DIR=/home/$username/.local/.nvm &&
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash
 
+clear
 # install private internet access
-curl -o- https://installers.privateinternetaccess.com/download/pia-linux-2.4-05574.run | bash
+echo "Installing Private Internet Access..."
+curl -o- https://installers.privateinternetaccess.com/download/pia-linux-2.4-05574.run &&
+sh pia-linux-2.4-05574.run &&
+rm pia-linux-2.4-05574
 
+clear
+# update grub to hide boot menu
+echo "Updating grub config..."
+sed -i "/GRUB_TIMEOUT/d" /etc/default/grub &&
+echo "GRUB_TIMEOUT=0" >> /etc/default/grub &&
+echo "GRUB_TIMEOUT_STYLE=hidden" >> /etc/default/grub &&
+grub-mkconfig -o /boot/grub/grub.cfg
+
+clear
+echo "resetting pulseaudio..."
 [ -f /usr/bin/pulseaudio ] && resetpulse
 
 serviceinit NetworkManager cronie org.cups.cupsd.service
 
 systembeepoff
+
+clear
 
 echo "Ok. It looks like everything went well."
 echo "You should be able to log out and log back in as your new user."
