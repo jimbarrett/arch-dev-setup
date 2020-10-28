@@ -145,9 +145,10 @@ resetpulse() {\
 	killall pulseaudio
 	sudo -n $username pulseaudio --start ;
 }
-# Let's do it
-#isroot
 
+# Let's do it
+isroot
+clear
 echo "Welcome!"
 echo "This will install a full dev environment. Are you ready? (y/n)"
 while true; do
