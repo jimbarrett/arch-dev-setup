@@ -197,7 +197,7 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash
 clear
 # install private internet access
 echo "Installing Private Internet Access..."
-curl -o- https://installers.privateinternetaccess.com/download/pia-linux-2.4-05574.run &&
+curl -LO https://installers.privateinternetaccess.com/download/pia-linux-2.4-05574.run &&
 sh pia-linux-2.4-05574.run &&
 rm pia-linux-2.4-05574
 
