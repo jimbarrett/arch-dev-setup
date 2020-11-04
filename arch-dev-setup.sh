@@ -227,7 +227,7 @@ clear
 echo "resetting pulseaudio..."
 [ -f /usr/bin/pulseaudio ] && resetpulse
 
-serviceinit NetworkManager cronie org.cups.cupsd.service httpd mariadb
+serviceinit NetworkManager cronie org.cups.cupsd.service httpd mariadb sshd
 
 systembeepoff
 
