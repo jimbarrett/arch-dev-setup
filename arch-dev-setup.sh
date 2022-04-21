@@ -187,27 +187,6 @@ rm -f /home/$username/README.md /home/$username/LICENSE
 
 chsh -s /usr/bin/zsh $username
 
-#lamp stuff
-clear
-echo "Configuring LAMP..."
-mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
-# update .conf
-awk '{
-    if ($NF ~ /mod_unique_id/)
-        $0="#"$0
-    if ($NF ~ /mod_mpm_event/)
-        $0="#"$0
-    print
-}' /etc/httpd/conf/httpd.conf > newhttpd
-
-echo "LoadModule mpm_prefork_module modules/mod_mpm_prefork.so" >> newhttpd
-echo "LoadModule php7_module modules/libphp7.so" >> newhttpd
-echo "AddHandler php7-script php" >> newhttpd
-echo "Include conf/extra/php7_module.conf" >> newhttpd
-
-mv /etc/httpd/conf/httpd.conf /etc/httpd/conf/httpd.conf.backup
-mv newhttpd /etc/httpd/conf/httpd.conf
-
 clear
 # install nvm
 echo "Installing NVM..."
