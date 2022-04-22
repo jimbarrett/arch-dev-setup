@@ -183,6 +183,11 @@ loop
 
 downloaddots || error "Couldn't download dot files."
 
+#install dmenu 
+cd /home/$username/.local/src/dmenu
+make clean
+sudo -u $username make install
+
 rm -f /home/$username/README.md /home/$username/LICENSE
 
 chsh -s /usr/bin/zsh $username
