@@ -183,6 +183,9 @@ loop
 
 downloaddots || error "Couldn't download dot files."
 
+# don't need bash_profile
+rm /home/$username/.bash_profile
+
 #install dmenu 
 cd /home/$username/.local/src/dmenu
 make clean
